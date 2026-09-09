@@ -19,7 +19,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <Link href="/collection" className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[.15em] text-[#a7a39a] hover:text-[#f0cc7d]">
           <ArrowLeft size={15}/> The archive
         </Link>
-        <Link href="/" className="font-sans text-sm font-bold tracking-[.3em]">HORUSCOPE<span className="ml-1 align-top text-[9px] text-[#c19a52]">®</span></Link>
+        <Link href="/" className="inline-flex items-center" aria-label="HORUSCOPE Home">
+          <Image
+            src="/HL WMWT (G).png"
+            alt="HORUSCOPE"
+            width={150}
+            height={32}
+            priority
+            className="h-7 w-auto object-contain transition-opacity duration-300 hover:opacity-85"
+          />
+        </Link>
         <BagButton />
       </header>
 
