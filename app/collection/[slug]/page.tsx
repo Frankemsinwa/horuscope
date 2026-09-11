@@ -41,30 +41,47 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="flex flex-col justify-center py-4">
           <p className="font-mono text-[10px] uppercase tracking-[.2em] text-[#c19a52]">The archive / {product.family}</p>
           <h1 className="mt-6 font-serif text-6xl leading-[.9] tracking-[-.04em] sm:text-8xl">{product.name}</h1>
+          <p className="mt-3 font-serif text-2xl text-[#c19a52] italic">{product.title}</p>
           <p className="mt-6 max-w-lg font-serif text-xl leading-relaxed text-[#a7a39a]">{product.description}</p>
 
-          <div className="mt-8 flex items-center justify-between border-y border-[#66532f] py-5 font-mono text-xs uppercase tracking-[.12em]">
-            <span>{product.notes}</span>
-            <span>${product.price}</span>
+          <div className="mt-8 border-y border-[#66532f] py-5">
+            <div className="flex items-center justify-between font-mono text-xs uppercase tracking-[.12em]">
+              <span className="text-[#a7a39a]">{product.notes}</span>
+            </div>
+            <div className="mt-4 flex gap-4">
+              <div className="flex-1 border border-[#66532f] px-4 py-3 text-center">
+                <p className="font-mono text-[10px] uppercase tracking-[.15em] text-[#a7a39a]">50ML</p>
+                <p className="mt-1 font-mono text-sm text-[#c19a52]">₦{product.price50ml.toLocaleString()}</p>
+              </div>
+              <div className="flex-1 border border-[#66532f] px-4 py-3 text-center">
+                <p className="font-mono text-[10px] uppercase tracking-[.15em] text-[#a7a39a]">100ML</p>
+                <p className="mt-1 font-mono text-sm text-[#c19a52]">₦{product.price100ml.toLocaleString()}</p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-10 border border-[#66532f] p-6">
             <p className="font-mono text-[10px] uppercase tracking-[.18em] text-[#c19a52]">Personalization / your root</p>
             <h2 className="mt-4 font-serif text-3xl">A scent becomes yours by remembering you.</h2>
-            <p className="mt-4 leading-7 text-[#a7a39a]">{product.story}</p>
+            <p className="mt-4 leading-7 text-[#a7a39a]">{product.personalization}</p>
             <p className="mt-5 border-t border-[#66532f] pt-5 font-mono text-xs leading-6 tracking-[.08em] text-[#eee8da]">YOUR ORIGIN — {product.origin}</p>
           </div>
 
           <AddToBag product={product} />
 
+          <div className="mt-12 border border-[#66532f] p-6">
+            <p className="font-mono text-[10px] uppercase tracking-[.18em] text-[#c19a52]">The story</p>
+            <p className="mt-4 leading-7 text-[#a7a39a] font-serif text-lg">{product.story}</p>
+          </div>
+
           <div className="mt-12 grid gap-6 border-t border-[#66532f] pt-8 sm:grid-cols-2">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[.15em] text-[#c19a52]">The ritual</p>
-              <p className="mt-3 leading-6 text-[#a7a39a]">Apply to pulse points and let the composition find its own temperature.</p>
+              <p className="mt-3 leading-6 text-[#a7a39a]">Apply to pulse points and let the composition find its own temperature. Each fragrance develops uniquely on skin — allow at least fifteen minutes for the full architecture to reveal itself.</p>
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[.15em] text-[#c19a52]">The constellation</p>
-              <p className="mt-3 leading-6 text-[#a7a39a]">Aligned with {product.zodiac.join(' and ')} — a personal signal, never a prescription.</p>
+              <p className="mt-3 leading-6 text-[#a7a39a]">Aligned with {product.zodiac.join(' and ')} — a personal signal, never a prescription. Named after {product.name}, a civilization that embodied the essence of this composition.</p>
             </div>
           </div>
         </div>
